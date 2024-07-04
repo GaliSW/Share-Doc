@@ -25,8 +25,25 @@ const config: Config = {
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: "en",
-    locales: ["en"],
+    defaultLocale: "zh-Hant",
+    locales: ["en", "zh-Hant"],
+    path: "i18n",
+    localeConfigs: {
+      en: {
+        label: "English",
+        direction: "ltr",
+        htmlLang: "en-US",
+        calendar: "gregory",
+        path: "en",
+      },
+      "zh-Hant": {
+        label: "繁體中文",
+        direction: "ltr",
+        htmlLang: "zh-Hant",
+        calendar: "chinese",
+        path: "zh-Hant",
+      },
+    },
   },
 
   presets: [
@@ -54,6 +71,10 @@ const config: Config = {
         src: "img/logo.png",
       },
       items: [
+        {
+          type: "localeDropdown",
+          position: "right",
+        },
         {
           href: "https://github.com/GaliSW/Share-Doc",
           label: "GitHub",
