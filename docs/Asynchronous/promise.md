@@ -177,7 +177,7 @@ consuming code 部分:  (從執行器拿到資料後要做的事寫在這裡)
         })
         ```
         
-        若在promise物件回傳完成後，.then中第一個參數function(data){…}中程式碼出現錯誤，並不會跳至reject狀態時的錯誤處理函式，此時整個瀏覽器便會報錯並卡在出錯的那行，不再往下執行。因此，我們可以加上.catch()來避免此狀況：
+        若在promise物件回傳完成後 `.then`中第一個參數 `function(data){…}`中程式碼出現錯誤，並不會跳至reject狀態時的錯誤處理函式，此時整個瀏覽器便會報錯並卡在出錯的那行，不再往下執行。因此，我們可以加上 `.catch()` 來避免此狀況：
         
         ```javascript
         let promise = new Promise(function (resolve, reject) {

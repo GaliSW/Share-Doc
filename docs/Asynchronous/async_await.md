@@ -2,12 +2,12 @@
 
 ```javascript
 let promise = new Promise(function(resolve, reject){
-  ...
-})
+  resolve();
+});
 
-promise.then(function(){}
-	...
-)
+promise.then(function(){
+  ...
+});
 ```
 
 **`async/await` and `promise.then/catch`**
@@ -57,7 +57,7 @@ async function f() {
 f();
 ```
 
-注意：await 不能寫在一般function中或單獨出現。他必須被async function fn() {…} 包起來。
+注意：`await` 不能写在一般函数中或单独出现。它必须被 `async function fn() { /* 代码 */ }` 包起来。
 
 - 錯誤捕捉
 
