@@ -1,3 +1,4 @@
+import React from 'react';
 import clsx from 'clsx';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
@@ -56,6 +57,21 @@ function Feature({title, Svg, description}: FeatureItem) {
 }
 
 export default function HomepageFeatures(): JSX.Element {
+  React.useEffect(() => {
+    function sendHeight() {
+      const height = document.documentElement.scrollHeight;
+      parent.postMessage(height, '*');
+    }
+
+    window.addEventListener('DOMContentLoaded', sendHeight);
+    window.addEventListener('resize', sendHeight);
+
+    return () => {
+      window.removeEventListener('DOMContentLoaded', sendHeight);
+      window.removeEventListener('resize', sendHeight);
+    };
+  }, []);
+
   return (
     <section className={styles.features}>
       <div className="container">
